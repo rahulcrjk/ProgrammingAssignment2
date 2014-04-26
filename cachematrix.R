@@ -1,6 +1,6 @@
-## The below two funtions cache the inverse of a matrix rather 
-## than compute it repeatedly, if the matrix has not changed. 
-
+## The below two funtions cache the inverse of a matrix rather ##
+## than compute it repeatedly, if the matrix has not changed.  ##
+#################################################################
 
 
 ## This function creates a special "matrix" object that can cache 
