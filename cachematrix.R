@@ -1,4 +1,4 @@
-## The below two funtions caches the inverse of a matrix rather 
+## The below two funtions cache the inverse of a matrix rather 
 ## than compute it repeatedly if the matrix has not changed. 
 
 
@@ -6,18 +6,18 @@
 ## its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
+  i <- NULL
   
   set <- function(y) {
     x <<- y
-    m <<- NULL
+    i <<- NULL
   }
   
   get <- function() x
   
-  setInverse <- function(inverse) m <<- inverse
+  setInverse <- function(inverse) i <<- inverse
   
-  getInverse <- function() m
+  getInverse <- function() i
   
   list(set = set, get = get,
        setInverse = setInverse,
@@ -32,16 +32,17 @@ makeCacheMatrix <- function(x = matrix()) {
 ## function only retrieves the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  m    <- x$getInverse()
+  ## Return a matrix that is the inverse of 'x'
   
-  if(!is.null(m)) {
+  i <- x$getInverse()
+  
+  if(!is.null(i)) {
     message("getting cached data")
-    return(m)
+    return(i)
   }
   
   data <- x$get()
-  m    <- solve(data, ...)
-  x$setInverse(m)
-  m
+  i <- solve(data, ...)
+  x$setInverse(i)
+  i
 }
